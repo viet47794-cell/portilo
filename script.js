@@ -1,136 +1,82 @@
-// 1. CUSTOM CURSOR LOGIC
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursor-follower');
-let posX = 0, posY = 0;
-let mouseX = 0, mouseY = 0;
+// 1. Tắt màn hình Loading khi web tải xong
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.style.opacity = "0";
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 500);
+});
+
+// 2. Hiệu ứng ánh sáng đi theo con trỏ chuột (Cinematic Cursor)
+const cursorGlow = document.querySelector('.cursor-glow');
 
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    // Cập nhật ngay lập tức cho chấm nhỏ
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
-});
-
-// Animation loop để tạo độ trễ (trailing) cho vòng tròn lớn
-function updateFollower() {
-    posX += (mouseX - posX) * 0.1;
-    posY += (mouseY - posY) * 0.1;
-    follower.style.left = `${posX}px`;
-    follower.style.top = `${posY}px`;
-    requestAnimationFrame(updateFollower);
-}
-updateFollower();
-
-// Phóng to cursor khi hover vào nút
-const links = document.querySelectorAll('a, button');
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => follower.style.transform = 'translate(-50%, -50%) scale(1.5)');
-    link.addEventListener('mouseleave', () => follower.style.transform = 'translate(-50%, -50%) scale(1)');
-});
-
-
-// 2. THEME SWITCHER
-const themeBtn = document.getElementById('theme-btn');
-const btnText = themeBtn.querySelector('.btn-text');
-themeBtn.addEventListener('click', () => {
-    const isDark = document.body.getAttribute('data-theme') === 'dark';
-    document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    btnText.textContent = isDark ? 'NIGHT' : 'DAY';
-});
-
-
-// 3. TYPEWRITER EFFECT
-const texts = ["Frontend Development", "Graphic Design", "UI/UX Architecture"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-const typeTarget = document.getElementById('typewriter');
-
-(function type() {
-    if (count === texts.length) count = 0;
-    currentText = texts[count];
-    letter = currentText.slice(0, ++index);
-    typeTarget.textContent = letter;
-    
-    if (letter.length === currentText.length) {
-        count++;
-        index = 0;
-        setTimeout(type, 2000); // Đợi 2s trước khi gõ chữ mới
-    } else {
-        setTimeout(type, 100);
+    // Chỉ chạy hiệu ứng trên Desktop (màn hình lớn)
+    if (window.innerWidth > 768) {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
     }
-}());
+});
 
+// Phóng to ánh sáng khi hover vào các thẻ có class 'glass-card' hoặc 'btn'
+const hoverTargets = document.querySelectorAll('.glass-card, .btn');
+hoverTargets.forEach(target => {
+    target.addEventListener('mouseenter', () => {
+        cursorGlow.style.width = '400px';
+        cursorGlow.style.height = '400px';
+        cursorGlow.style.background = 'radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(0,0,0,0) 70%)';
+    });
+    target.addEventListener('mouseleave', () => {
+        cursorGlow.style.width = '300px';
+        cursorGlow.style.height = '300px';
+        cursorGlow.style.background = 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0,0,0,0) 70%)';
+    });
+});
 
-// 4. INTERSECTION OBSERVER (Hiệu ứng cuộn trang)
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+// 3. Scroll Reveal Animation (Thay thế cho Framer Motion)
+// Tự động hiện các phần tử khi cuộn chuột tới
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100; // Khoảng cách từ dưới lên để bắt đầu hiện
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+window.addEventListener("scroll", reveal);
+reveal(); // Chạy lần đầu khi vừa load trang
+
+// 4. Hiệu ứng chạy số tự động cho phần Thống kê (Counter)
+const counters = document.querySelectorAll('.counter');
+const speed = 200; // Tốc độ chạy số
+
+const animateCounters = () => {
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
             
-            // Kích hoạt thanh tiến trình SVG khi cuộn tới
-            const circles = entry.target.querySelectorAll('.progress');
-            circles.forEach(circle => {
-                const percent = circle.parentElement.parentElement.getAttribute('data-percent');
-                const offset = 283 - (283 * percent) / 100;
-                circle.style.strokeDashoffset = offset;
-            });
+            // Tính toán bước nhảy
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 10);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        // Kích hoạt chạy số khi cuộn tới phần Stats
+        const statSection = document.getElementById('stats');
+        const elementTop = statSection.getBoundingClientRect().top;
+        if (elementTop < window.innerHeight) {
+            updateCount();
         }
     });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.section').forEach((el) => observer.observe(el));
-
-
-// 5. 3D TILT EFFECT CHO PORTFOLIO CARDS
-const cards = document.querySelectorAll('.tilt-card');
-cards.forEach(card => {
-    const inner = card.querySelector('.card-inner');
-    
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // Tọa độ X trong card
-        const y = e.clientY - rect.top;  // Tọa độ Y trong card
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        // Tính toán góc nghiêng (Math.abs để giới hạn độ nghiêng max)
-        const rotateX = ((y - centerY) / centerY) * -15; 
-        const rotateY = ((x - centerX) / centerX) * 15;
-        
-        inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        // Reset về vị trí cũ khi chuột rời đi
-        inner.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    });
-});
-
-
-// 6. ISOTOPE FILTER LOGIC (Lọc dự án)
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Xóa class active
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filterValue = btn.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.style.display = 'block';
-                setTimeout(() => item.style.opacity = '1', 50);
-            } else {
-                item.style.opacity = '0';
-                setTimeout(() => item.style.display = 'none', 300);
-            }
-        });
-    });
-});
+}
+window.addEventListener('scroll', animateCounters);
