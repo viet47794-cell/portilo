@@ -3,70 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Quốc Việt | Bento Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Nguyễn Quốc Việt | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bento-wrapper">
-        <header class="bento-header">
-            <h1>Nguyễn Quốc Việt</h1>
-            <p>IT & Graphic Design</p>
-        </header>
 
-        <main class="bento-grid">
-            <!-- Ô 1: Giới thiệu -->
-            <div class="bento-box intro-box">
-                <h2>👋 Xin chào!</h2>
-                <p>Sinh viên Đại học Gia Định (GDU). Đam mê giao thoa giữa tư duy logic của lập trình và nhãn quan thẩm mỹ của thiết kế đồ họa.</p>
-            </div>
+    <!-- Các đốm màu Gradient nền -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
 
-            <!-- Ô 2: Kỹ năng công cụ -->
-            <div class="bento-box skills-box">
-                <h3>🛠️ Công cụ</h3>
-                <div class="pill-container">
-                    <span class="pill">Photoshop</span>
-                    <span class="pill">Illustrator</span>
-                    <span class="pill">Figma</span>
-                    <span class="pill">ibisPaint X</span>
-                    <span class="pill">VS Code</span>
+    <nav>
+        <div class="logo">Quốc<span>Việt</span></div>
+        <div class="nav-links">
+            <a href="#" class="active">Trang chủ</a>
+            <a href="#experience">Hành trình</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
+        </div>
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+    </nav>
+
+    <!-- Header Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <div class="profile-badge">
+                <img src="avatar.jpg" alt="Avatar" class="avatar-img">
+                <div class="badge-info">
+                    <h3>Nguyễn Quốc Việt</h3>
+                    <p>SINH VIÊN IT & NHÀ PHÁT TRIỂN UI/UX</p>
                 </div>
             </div>
 
-            <!-- Ô 3: maimai DX -->
-            <div class="bento-box maimai-box">
-                <h3>🕹️ maimai DX</h3>
-                <div class="stat">
-                    <span class="number">11,500</span>
-                    <span class="label">Rating (144 credits)</span>
+            <p class="subtitle"><span class="dot"></span> SINH VIÊN GDU & NHÀ THIẾT KẾ ĐỒ HỌA</p>
+
+            <h1 class="main-title">
+                Thiết kế <span class="text-gradient">đồ họa</span><br>chuyên nghiệp<br>
+                Phát triển giao diện người<br>dùng hiện đại
+            </h1>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h2>11k5 <span class="plus">+</span></h2>
+                    <p>maimai DX<br>Rating</p>
                 </div>
-                <p>Rèn luyện phản xạ, nhịp độ và sự tập trung.</p>
+                <div class="stat-box">
+                    <h2>02 <span class="plus">+</span></h2>
+                    <p>Chuyên ngành<br>Đào tạo</p>
+                </div>
+                <div class="stat-box">
+                    <h2>144 <span class="plus">cr</span></h2>
+                    <p>Kinh nghiệm<br>Phản xạ</p>
+                </div>
+                <div class="stat-box">
+                    <h2>24/7</h2>
+                    <p>Sáng tạo &<br>Hỗ trợ</p>
+                </div>
             </div>
 
-            <!-- Ô 4: Nhiếp ảnh -->
-            <div class="bento-box photo-box">
-                <h3>📸 Nhiếp ảnh</h3>
-                <p>Chân dung & Tĩnh vật. Khai thác ánh sáng qua lăng kính Canon EOS 1200D cùng ống kính Tamron 18-200mm Non-VC.</p>
+            <div class="action-buttons">
+                <a href="#contact" class="btn-primary">Liên hệ ngay</a>
+                <a href="#projects" class="btn-secondary">Xem dự án</a>
             </div>
+        </div>
 
-            <!-- Ô 5: Dòng thời gian -->
-            <div class="bento-box timeline-box">
-                <h3>⏳ Hành trình</h3>
-                <ul class="mini-timeline">
-                    <li><strong>2022:</strong> Gia nhập làng Rhythm Games.</li>
-                    <li><strong>2021:</strong> Lên sân cỏ, rèn luyện thể lực qua những trận "đấm bóng banh".</li>
-                    <li><strong>2020:</strong> Bắt đầu gõ những dòng code đầu tiên.</li>
-                </ul>
-            </div>
+        <div class="hero-image">
+            <img src="hero-img.jpg" alt="Nguyen Quoc Viet"> 
+        </div>
+    </main>
 
-            <!-- Ô 6: Liên hệ -->
-            <div class="bento-box contact-box">
-                <h3>🤝 Kết nối</h3>
-                <p>Sẵn sàng cho những dự án mới!</p>
-                <a href="mailto:viet47794@gmail.com" class="btn-contact">viet47794@gmail.com</a>
+    <!-- Timeline Section -->
+    <section id="experience" class="timeline-section">
+        <div class="timeline-container">
+            <p class="subtitle"><span class="dot"></span> HÀNH TRÌNH PHÁT TRIỂN</p>
+            <h2 class="main-title" style="margin-bottom: 20px;">Cột mốc <span class="text-gradient">cá nhân</span></h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Năm 2022</div>
+                    <div class="timeline-content">
+                        <h3>Bén duyên với Rhythm Games 🕹️</h3>
+                        <p>Bắt đầu hành trình với maimai DX. Rèn luyện phản xạ tay mắt cực đỉnh, nâng cao khả năng tập trung và cày cuốc lên mức rating 11,500.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Năm 2021</div>
+                    <div class="timeline-content">
+                        <h3>Thể thao & "Đấm bóng banh" ⚽</h3>
+                        <p>Thời gian dành cho thể thao nảy lửa. Ra sân xả stress, "đấm bóng banh" giúp rèn luyện thể lực, sức bền và tinh thần đồng đội máu lửa.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Năm 2020</div>
+                    <div class="timeline-content">
+                        <h3>Những dòng code đầu tiên 💻</h3>
+                        <p>Chính thức bước chân vào thế giới Lập trình. Mày mò gõ những đoạn code đầu đời, đặt nền móng cho đam mê IT.</p>
+                    </div>
+                </div>
             </div>
-        </main>
-    </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
