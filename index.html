@@ -1,240 +1,243 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="smooth-scroll">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Quốc Việt | Premium Portfolio</title>
-    <!-- Font hiện đại: Space Grotesk cho Tiêu đề, Inter cho Nội dung -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Nguyễn Quốc Việt | Creative Developer & Designer</title>
+    <!-- Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Ánh sáng trỏ chuột -->
-    <div class="mouse-glow"></div>
 
-    <!-- Hạt Particles trang trí -->
-    <div class="particles-container" id="particles"></div>
+    <!-- Cinematic Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">NQV<span>.</span></div>
+            <div class="progress-bar"><div class="progress"></div></div>
+        </div>
+    </div>
 
-    <!-- Navbar -->
-    <nav id="navbar">
+    <!-- Custom Cursor Glow -->
+    <div class="cursor-glow"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Floating Glassmorphism Navbar -->
+    <nav class="glass-nav">
         <div class="nav-container">
-            <a href="#home" class="logo">VIET<span>.</span></a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#timeline">Timeline</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <a href="#home" class="nav-logo">NQV<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#journey" class="nav-item">Journey</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="hero-content reveal">
-            <p class="greeting">XIN CHÀO, TÔI LÀ</p>
-            <h1 class="glitch-text" data-text="Nguyễn Quốc Việt">Nguyễn Quốc Việt</h1>
-            <h2 class="tagline">Creative Developer & <span class="gradient-text">UI/UX Designer</span></h2>
-            <p class="hero-desc">Kiến tạo trải nghiệm kỹ thuật số đột phá. Giao thoa giữa tư duy lập trình logic và nhãn quan nghệ thuật tinh tế.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn btn-glow">View Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-            <p>Scroll Down</p>
-        </div>
-    </section>
+    <!-- Canvas Background cho Particle & Dynamic Light -->
+    <canvas id="bg-canvas"></canvas>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title reveal"><span>01.</span> About Me</h2>
-            <div class="about-grid">
-                <div class="about-img-wrapper reveal slide-right">
-                    <div class="about-img">
-                        <img src="1370569.jpeg" alt="Nguyễn Quốc Việt">
-                        <div class="img-glow"></div>
-                    </div>
-                </div>
-                <div class="about-text reveal slide-left">
-                    <p>Tôi là một sinh viên IT & Graphic Design đam mê tạo ra những sản phẩm web không chỉ chạy tốt mà còn phải đẹp mắt. Khai thác sức mạnh của công nghệ để hiện thực hóa những ý tưởng thiết kế táo bạo.</p>
-                    <div class="skills-grid">
-                        <div class="skill-card">HTML/CSS <div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
-                        <div class="skill-card">JavaScript <div class="skill-bar"><div class="fill" style="width: 80%"></div></div></div>
-                        <div class="skill-card">React <div class="skill-bar"><div class="fill" style="width: 70%"></div></div></div>
-                        <div class="skill-card">UI/UX Design <div class="skill-bar"><div class="fill" style="width: 85%"></div></div></div>
-                        <div class="skill-card">Photoshop/Figma <div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
-                        <div class="skill-card">Blender 3D <div class="skill-bar"><div class="fill" style="width: 60%"></div></div></div>
-                    </div>
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero">
+            <div class="hero-content reveal-load">
+                <div class="floating-badge">Creative Portfolio 2026</div>
+                <h1 class="hero-title">
+                    Nguyễn Quốc <br>
+                    <span class="text-glow">Việt.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span id="typewriter"></span><span class="cursor">|</span>
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary ripple">Explore Projects</a>
+                    <a href="#contact" class="btn-secondary ripple">Contact Me</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section id="timeline" class="section">
-        <div class="container">
-            <h2 class="section-title reveal"><span>02.</span> Career Path</h2>
-            <div class="timeline-container">
-                <div class="timeline-item reveal">
-                    <div class="timeline-icon"><i class="fa-solid fa-rocket"></i></div>
-                    <div class="timeline-content glass-panel">
-                        <h3>Mục tiêu tương lai</h3>
-                        <span class="date">2026 - Tương lai</span>
-                        <p>Trở thành Creative Fullstack Developer, dẫn dắt các dự án kết hợp giữa công nghệ 3D WebGL và thiết kế tương tác.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <div class="timeline-content glass-panel">
-                        <h3>Làm Freelance & Thực tập</h3>
-                        <span class="date">2024 - 2025</span>
-                        <p>Nhận các dự án thiết kế UI/UX và phát triển Landing Page độc lập. Rèn luyện kỹ năng làm việc thực tế.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-icon"><i class="fa-solid fa-code"></i></div>
-                    <div class="timeline-content glass-panel">
-                        <h3>Học Frontend Development</h3>
-                        <span class="date">2023</span>
-                        <p>Chìm đắm vào thế giới của JavaScript, CSS Animations và tư duy logic lập trình.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-icon"><i class="fa-solid fa-layer-group"></i></div>
-                    <div class="timeline-content glass-panel">
-                        <h3>Làm Project đầu tiên</h3>
-                        <span class="date">2022</span>
-                        <p>Hoàn thành bộ nhận diện thương hiệu cá nhân và trang web tĩnh đầu tay.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-icon"><i class="fa-solid fa-pen-nib"></i></div>
-                    <div class="timeline-content glass-panel">
-                        <h3>Bắt đầu học Thiết kế</h3>
-                        <span class="date">2021</span>
-                        <p>Làm quen với Photoshop, Illustrator và các nguyên lý mỹ thuật cơ bản.</p>
-                    </div>
-                </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <span>Scroll to explore</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title reveal"><span>03.</span> Featured Work</h2>
-            <div class="project-grid">
-                <!-- Project 1 -->
-                <div class="project-card reveal glass-panel">
-                    <div class="project-img">
-                        <img src="project1.jpg" alt="Project 1">
-                        <div class="project-overlay">
-                            <a href="#" class="icon-link"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+            <div class="container layout-asymmetric">
+                <div class="about-image reveal fade-right tilt-card">
+                    <div class="glass-card image-wrapper">
+                        <!-- Tải ảnh avatar của bạn lên GitHub và thay tên vào đây -->
+                        <img src="avatar.jpg" alt="Nguyễn Quốc Việt" class="parallax-img">
+                        <div class="glow-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-text reveal fade-left">
+                    <h2 class="section-title">Bridging Logic <br><span>& Aesthetics</span></h2>
+                    <p class="desc">
+                        Là sinh viên song ngành IT & Thiết kế Đồ họa tại Đại học Gia Định (GDU), tôi tập trung vào việc tạo ra những trải nghiệm số tinh tế. Từ việc tối ưu hóa hiệu suất mã nguồn đến việc khai thác ánh sáng qua lăng kính nhiếp ảnh, mọi dự án đều được chăm chút với độ chính xác cao nhất.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item glass-card">
+                            <h3 class="counter" data-target="11500">0</h3>
+                            <p>maimai DX Rating</p>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <h3 class="counter" data-target="144">0</h3>
+                            <p>Credits</p>
                         </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Cyberpunk E-commerce</h3>
-                        <p>Nền tảng mua sắm hiện đại tích hợp hiệu ứng 3D và Dark Mode cao cấp.</p>
-                        <div class="tech-stack"><span>React</span><span>CSS</span><span>Figma</span></div>
-                    </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card reveal glass-panel">
-                    <div class="project-img">
-                        <img src="project2.jpg" alt="Project 2">
-                        <div class="project-overlay">
-                            <a href="#" class="icon-link"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </section>
+
+        <!-- CAREER TIMELINE SECTION -->
+        <section id="journey" class="section">
+            <div class="container">
+                <h2 class="section-title center reveal fade-up">My <span>Journey</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item reveal fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-content tilt-card">
+                            <span class="date">Hiện tại - 2026</span>
+                            <h3>Sinh viên GDU & Phát triển kỹ năng</h3>
+                            <p>Đào sâu vào Computer Vision, Web Development và UI/UX. Rèn luyện phản xạ qua Rhythm Games và nhiếp ảnh chuyên sâu với hệ máy Canon.</p>
                         </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Brand Identity System</h3>
-                        <p>Thiết kế hệ thống nhận diện thương hiệu đồng bộ đa nền tảng.</p>
-                        <div class="tech-stack"><span>Illustrator</span><span>Photoshop</span></div>
+                    <div class="timeline-item reveal fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-content tilt-card">
+                            <span class="date">Tháng 05, 2026</span>
+                            <h3>Trải nghiệm thực tế</h3>
+                            <p>Tham gia môi trường làm việc tốc độ cao tại kho vận Shopee, rèn luyện kỹ năng quản lý thời gian và sức bền.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal fade-up">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-content tilt-card">
+                            <span class="date">2025</span>
+                            <h3>Khởi đầu đam mê</h3>
+                            <p>Bắt đầu hành trình thiết kế đồ họa chuyên nghiệp và viết những dòng code Frontend đầu tiên.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Statistics Section -->
-    <section id="stats" class="section">
-        <div class="container">
-            <div class="stats-grid reveal glass-panel">
-                <div class="stat-box">
-                    <h3 class="counter" data-target="15">0</h3>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-box">
-                    <h3 class="counter" data-target="4">0</h3>
-                    <p>Years Learning</p>
-                </div>
-                <div class="stat-box">
-                    <h3 class="counter" data-target="12">0</h3>
-                    <p>Happy Clients</p>
-                </div>
-                <div class="stat-box">
-                    <h3 class="counter" data-target="8">0</h3>
-                    <p>Certificates</p>
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title center reveal fade-up">Tech <span>Stack</span></h2>
+                <div class="bento-grid reveal fade-up">
+                    <div class="glass-card bento-item tilt-card">
+                        <div class="icon">🎨</div>
+                        <h3>Design Tools</h3>
+                        <div class="skill-tags">
+                            <span>Photoshop</span><span>Illustrator</span><span>Figma</span><span>ibisPaint X</span>
+                        </div>
+                    </div>
+                    <div class="glass-card bento-item tilt-card">
+                        <div class="icon">💻</div>
+                        <h3>Development</h3>
+                        <div class="skill-tags">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>VS Code</span>
+                        </div>
+                    </div>
+                    <div class="glass-card bento-item tilt-card">
+                        <div class="icon">📸</div>
+                        <h3>Photography</h3>
+                        <div class="skill-tags">
+                            <span>Canon EOS 1200D</span><span>Tamron 18-200mm Non-VC</span><span>Portrait</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title reveal"><span>04.</span> Get In Touch</h2>
-            <div class="contact-wrapper reveal glass-panel">
-                <div class="contact-info">
-                    <h3>Let's build something brilliant.</h3>
-                    <p>Hiện tại tôi đang mở cửa đón nhận những cơ hội hợp tác mới. Nếu bạn có một dự án thú vị, đừng ngần ngại gửi tin nhắn.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-github"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-discord"></i></a>
+        <!-- PROJECTS SECTION (Masonry/Bento Style) -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title reveal fade-up">Featured <span>Work</span></h2>
+                <div class="project-grid">
+                    <div class="glass-card project-card reveal fade-up tilt-card">
+                        <div class="project-img">
+                            <img src="project1.jpg" alt="Visual Identity">
+                            <div class="project-overlay">
+                                <a href="#" class="btn-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Visual Identity System</h3>
+                            <p>Thiết kế hệ thống nhận diện thương hiệu cá nhân đồng bộ.</p>
+                            <div class="tech-stack"><span>Ps</span><span>Ai</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card project-card reveal fade-up tilt-card" style="transition-delay: 0.2s;">
+                        <div class="project-img">
+                            <img src="project2.jpg" alt="Photography">
+                            <div class="project-overlay">
+                                <a href="#" class="btn-primary">Gallery</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Light & Shadow</h3>
+                            <p>Bộ sưu tập nhiếp ảnh tĩnh vật và chân dung khai thác ánh sáng sâu.</p>
+                            <div class="tech-stack"><span>Canon</span><span>Lightroom</span></div>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="input-group">
-                        <input type="text" required placeholder="Name">
-                        <div class="input-glow"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" required placeholder="Email">
-                        <div class="input-glow"></div>
-                    </div>
-                    <div class="input-group">
-                        <textarea required placeholder="Message" rows="5"></textarea>
-                        <div class="input-glow"></div>
-                    </div>
-                    <button type="submit" class="btn btn-glow w-100">Send Message</button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-wrapper glass-card reveal fade-up tilt-card">
+                    <div class="contact-info">
+                        <h2>Let's build something <br><span class="text-glow">epic together.</span></h2>
+                        <p>Sẵn sàng cho những dự án sáng tạo mới. Hãy kết nối với tôi!</p>
+                        <div class="social-links">
+                            <a href="#" class="social-btn ripple">GH</a>
+                            <a href="#" class="social-btn ripple">BE</a>
+                            <a href="#" class="social-btn ripple">IN</a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="input-group">
+                            <input type="text" required>
+                            <label>Tên của bạn</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" required>
+                            <label>Email</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="input-group">
+                            <textarea required rows="4"></textarea>
+                            <label>Tin nhắn</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <button type="submit" class="btn-primary ripple w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
         <div class="container footer-content">
-            <a href="#home" class="footer-logo">VIET<span>.</span></a>
-            <p>© 2026 Nguyễn Quốc Việt. Built with pure HTML/CSS/JS.</p>
-            <a href="#home" class="back-to-top"><i class="fa-solid fa-chevron-up"></i></a>
+            <div class="logo">NQV<span>.</span></div>
+            <p>© 2026 Nguyễn Quốc Việt. Crafted with precision.</p>
+            <a href="#home" class="back-to-top">↑ Top</a>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+ 
