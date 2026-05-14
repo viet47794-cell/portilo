@@ -3,106 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Quốc Việt | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <title>Nguyễn Quốc Việt | Advanced Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Các đốm màu Gradient nền -->
-    <div class="bg-shape shape-1"></div>
-    <div class="bg-shape shape-2"></div>
-    <div class="bg-shape shape-3"></div>
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
 
-    <nav>
-        <div class="logo">Quốc<span>Việt</span></div>
+    <!-- Animated Background -->
+    <div class="mesh-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">Q.VIET<span>_</span></div>
         <div class="nav-links">
-            <a href="#" class="active">Trang chủ</a>
-            <a href="#experience">Hành trình</a>
-            <a href="#projects">Dự án</a>
-            <a href="#contact">Liên hệ</a>
+            <a href="#home" class="hover-underline">Home</a>
+            <a href="#about" class="hover-underline">About</a>
+            <a href="#portfolio" class="hover-underline">Portfolio</a>
+            <a href="#timeline" class="hover-underline">Journey</a>
         </div>
-        <button id="theme-toggle" class="theme-btn">🌙</button>
+        <button id="theme-btn" class="magnetic-btn">
+            <span class="btn-text">NIGHT</span>
+        </button>
     </nav>
 
-    <!-- Header Section -->
-    <main class="hero-section">
-        <div class="hero-content">
-            <div class="profile-badge">
-                <img src="avatar.jpg" alt="Avatar" class="avatar-img">
-                <div class="badge-info">
-                    <h3>Nguyễn Quốc Việt</h3>
-                    <p>SINH VIÊN IT & NHÀ PHÁT TRIỂN UI/UX</p>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero section hidden">
+        <div class="hero-wrapper">
+            <h2 class="pre-title">HELLO WORLD, I AM</h2>
+            <h1 class="glitch-title" data-text="NGUYỄN QUỐC VIỆT">NGUYỄN QUỐC VIỆT</h1>
+            <div class="typing-container">
+                <span class="static-text">Chuyên môn của tôi là: </span>
+                <span id="typewriter" class="dynamic-text"></span><span class="cursor-blink">|</span>
             </div>
-
-            <p class="subtitle"><span class="dot"></span> SINH VIÊN GDU & NHÀ THIẾT KẾ ĐỒ HỌA</p>
-
-            <h1 class="main-title">
-                Thiết kế <span class="text-gradient">đồ họa</span><br>chuyên nghiệp<br>
-                Phát triển giao diện người<br>dùng hiện đại
-            </h1>
-
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <h2>11k5 <span class="plus">+</span></h2>
-                    <p>maimai DX<br>Rating</p>
-                </div>
-                <div class="stat-box">
-                    <h2>02 <span class="plus">+</span></h2>
-                    <p>Chuyên ngành<br>Đào tạo</p>
-                </div>
-                <div class="stat-box">
-                    <h2>144 <span class="plus">cr</span></h2>
-                    <p>Kinh nghiệm<br>Phản xạ</p>
-                </div>
-                <div class="stat-box">
-                    <h2>24/7</h2>
-                    <p>Sáng tạo &<br>Hỗ trợ</p>
-                </div>
-            </div>
-
-            <div class="action-buttons">
-                <a href="#contact" class="btn-primary">Liên hệ ngay</a>
-                <a href="#projects" class="btn-secondary">Xem dự án</a>
-            </div>
-        </div>
-
-        <div class="hero-image">
-            <img src="hero-img.jpg" alt="Nguyen Quoc Viet"> 
-        </div>
-    </main>
-
-    <!-- Timeline Section -->
-    <section id="experience" class="timeline-section">
-        <div class="timeline-container">
-            <p class="subtitle"><span class="dot"></span> HÀNH TRÌNH PHÁT TRIỂN</p>
-            <h2 class="main-title" style="margin-bottom: 20px;">Cột mốc <span class="text-gradient">cá nhân</span></h2>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Năm 2022</div>
-                    <div class="timeline-content">
-                        <h3>Bén duyên với Rhythm Games 🕹️</h3>
-                        <p>Bắt đầu hành trình với maimai DX. Rèn luyện phản xạ tay mắt cực đỉnh, nâng cao khả năng tập trung và cày cuốc lên mức rating 11,500.</p>
+            <div class="advanced-stats">
+                <div class="stat-circle" data-percent="85">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="stat-info">
+                        <strong>UI/UX</strong>
+                        <span>Design</span>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Năm 2021</div>
-                    <div class="timeline-content">
-                        <h3>Thể thao & "Đấm bóng banh" ⚽</h3>
-                        <p>Thời gian dành cho thể thao nảy lửa. Ra sân xả stress, "đấm bóng banh" giúp rèn luyện thể lực, sức bền và tinh thần đồng đội máu lửa.</p>
+                <div class="stat-circle" data-percent="92">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="stat-info">
+                        <strong>11k5</strong>
+                        <span>maimai Rating</span>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Năm 2020</div>
-                    <div class="timeline-content">
-                        <h3>Những dòng code đầu tiên 💻</h3>
-                        <p>Chính thức bước chân vào thế giới Lập trình. Mày mò gõ những đoạn code đầu đời, đặt nền móng cho đam mê IT.</p>
+                <div class="stat-circle" data-percent="78">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="stat-info">
+                        <strong>Frontend</strong>
+                        <span>Dev</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Marquee Tech Stack -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>ADOBE PHOTOSHOP</span> • <span>FIGMA</span> • <span>JAVASCRIPT</span> • <span>COMPUTER VISION</span> • <span>ADVERTISING TECHNOLOGY</span> • <span>ILLUSTRATOR</span> • <span>VISUAL DESIGN</span> • 
+            <span>ADOBE PHOTOSHOP</span> • <span>FIGMA</span> • <span>JAVASCRIPT</span> • <span>COMPUTER VISION</span> • <span>ADVERTISING TECHNOLOGY</span> • <span>ILLUSTRATOR</span> • <span>VISUAL DESIGN</span> •
+        </div>
+    </div>
+
+    <!-- Portfolio Filter Section -->
+    <section id="portfolio" class="section hidden">
+        <div class="section-header">
+            <h2 class="section-title">Selected Works</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="dev">Development</button>
+                <button class="filter-btn" data-filter="photo">Photography</button>
+            </div>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- 3D Tilt Card 1 -->
+            <div class="portfolio-item tilt-card" data-category="design">
+                <div class="card-inner">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500');"></div>
+                    <div class="card-content">
+                        <h3>Visual Identity</h3>
+                        <p>Hệ thống nhận diện thương hiệu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Tilt Card 2 -->
+            <div class="portfolio-item tilt-card" data-category="photo">
+                <div class="card-inner">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500');"></div>
+                    <div class="card-content">
+                        <h3>Canon EOS 1200D</h3>
+                        <p>Nhiếp ảnh chân dung & tĩnh vật ánh sáng.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Tilt Card 3 -->
+            <div class="portfolio-item tilt-card" data-category="dev">
+                <div class="card-inner">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500');"></div>
+                    <div class="card-content">
+                        <h3>Web Application</h3>
+                        <p>Tối ưu hóa UI/UX và logic DOM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Timeline -->
+    <section id="timeline" class="section hidden">
+        <h2 class="section-title">The Journey</h2>
+        <div class="complex-timeline">
+            <div class="timeline-row">
+                <div class="time-marker">May 2026</div>
+                <div class="time-content">
+                    <h4>Rèn luyện kỷ luật thực tế</h4>
+                    <p>Trải nghiệm môi trường làm việc cường độ cao tại kho vận Shopee, tối ưu hóa sức bền và khả năng chịu áp lực.</p>
+                </div>
+            </div>
+            <div class="timeline-row">
+                <div class="time-marker">2026</div>
+                <div class="time-content">
+                    <h4>Nghiên cứu chuyên sâu GDU</h4>
+                    <p>Tiếp cận các học phần nâng cao: Computer Vision, Advertising Technology và Nguyên lý Thiết kế Trực quan (Visual Design).</p>
+                </div>
+            </div>
+            <div class="timeline-row">
+                <div class="time-marker">2022</div>
+                <div class="time-content">
+                    <h4>Rhythm Game Master</h4>
+                    <p>Chinh phục maimai DX, đạt rating 11,500. Kỹ năng phân tích pattern và phản xạ tốc độ cao được hình thành.</p>
                 </div>
             </div>
         </div>
