@@ -24,10 +24,18 @@
 html.smooth-scroll { scroll-behavior: smooth; }
 body {
     font-family: var(--font-primary);
-    background-color: var(--bg-dark);
+    
+    /* 3 DÒNG NÀY LÀ ĐỂ THÊM BACKGROUND NÈ: */
+    /* Phủ lớp màu đen mờ (0.85) lên trên cái ảnh của ông */
+    background-image: linear-gradient(rgba(3, 3, 5, 0.85), rgba(3, 3, 5, 0.85)), url('1370569.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Ảnh đứng im khi cuộn trang */
+    
     color: var(--text-main);
     overflow-x: hidden;
     line-height: 1.6;
+}
 }
 ::selection { background: var(--accent-glow); color: #000; }
 a { text-decoration: none; color: inherit; }
